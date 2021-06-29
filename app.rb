@@ -1,20 +1,19 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/space'
-require 'sinatra/reloader'
-require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base 
-
-  enable :sessions
-   configure :development do
+  configure :development do
     register Sinatra::Reloader
   end
 
-   get '/' do
-     erb(:'index') 
-   end 
+  enable :sessions
+
+  get '/' do
+    erb(:'index') 
+  end 
 
  
   post '/sign_up' do
@@ -34,16 +33,16 @@ class MakersBnB < Sinatra::Base
     erb :new_space
   end
 
-   post '/new_space' do
+  post '/new_space' do
     sessions[:name] = params[:name]
     sessions[:description] = params[:description]
     sessions[:price] = params[:price]
     redirect '/spaces'
-   end
+  end
 
-   get '/spaces' do
-     erb :spaces
-   end
+  get '/spaces' do
+    erb :spaces
+  end
   
   run! if app_file == $0
 

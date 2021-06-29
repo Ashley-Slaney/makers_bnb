@@ -1,3 +1,9 @@
+# Set the environment to "test"
+ENV['ENVIRONMENT'] = 'test'
+
+# Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 require 'capybara/rspec'
 require './app'
 Capybara.app = MakersBnB
