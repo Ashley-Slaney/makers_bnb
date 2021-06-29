@@ -1,20 +1,30 @@
 require 'sinatra/base'
 require './lib/user'
 require './lib/space'
+require 'sinatra/reloader'
+require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base 
 
   enable :sessions
 
-   get 'signup/new' do
-     erb(:'signup/new') 
+   get '/' do
+     erb(:'index') 
    end 
 
-   post '/signup' do 
-
+   post '/sign_up' do
+    redirect '/spaces'
    end 
 
-   get '/addnewspace' do
+  get '/sign_in' do
+    erb :'sign_in'
+  end
+
+  post '/sign_in' do
+    redirect '/spaces'
+  end
+  
+  get '/addnewspace' do
     erb :new_space
   end
 
@@ -28,6 +38,5 @@ class MakersBnB < Sinatra::Base
    get '/spaces' do
      erb :spaces
    end
-
 
 end
