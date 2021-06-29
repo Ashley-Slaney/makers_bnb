@@ -1,11 +1,11 @@
-<form class="sign_in" action="/sign_in">
-    <input type="submit" value="Sign-in" />
+<form action="/login" method="get">
+  <input type="submit" value="Log In">
 </form>
 
-
-<form action='/sign_up' method='post'>
-  <h3>Enter your email - <input type='email' name='email'></h3>
-  <h3>Enter your password - <input type='password' name='password_one'></h3>
-  <h3>Confirm your password - <input type='password' name='password_two'></h3>
-  <h3><input type='submit' value='Sign-up'></h3>
-</form>
+<h2>Sign up to MakersBnB</h2>
+<form actions="/sign_up" method="post">
+  <input type="name" name="name" placeholder="Name">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password_one" placeholder="Password">
+  <input type="password" name ="password_two" placeholder="Confirm Password">
+  <input type="submit" value="Sign-up">

@@ -1,7 +1,7 @@
 # require 'spec_helper'
 
-
 feature 'sign up' do
+
     scenario 'user can sign up and sign in' do 
         visit('/')
         fill_in('email', with: 'test@gmail.com')
