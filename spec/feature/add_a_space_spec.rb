@@ -8,7 +8,7 @@ feature "user can add a new space" do
     expect(page).to have_content('Makers')
     expect(page).to have_content('great')
     expect(page).to have_content('$20')
-    expect(current_path).to eq('/new_space')
+    expect(current_path).to eq('/spaces')
   end
 end
 

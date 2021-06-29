@@ -41,7 +41,7 @@ GEM
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.11.7-arm64-darwin)
+    nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
     parallel (1.20.1)
     parser (3.0.1.1)
@@ -125,11 +125,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-<<<<<<< HEAD
-  x86_64-darwin-19
-=======
-  arm64-darwin-20
->>>>>>> main
+  x86_64-darwin-20
 
 DEPENDENCIES
   bcrypt
@@ -151,8 +147,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-<<<<<<< HEAD
-   2.2.16
-=======
    2.2.19
->>>>>>> main
