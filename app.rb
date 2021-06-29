@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/space'
+require './database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
   configure :development do
