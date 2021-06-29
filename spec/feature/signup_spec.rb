@@ -1,4 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
+
 
 feature 'sign up' do
     scenario 'user can sign up and sign in' do 
@@ -11,3 +12,4 @@ feature 'sign up' do
         expect(page).to have_content('Welcome to Spaces')
     end
 end
+
