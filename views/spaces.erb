@@ -1,1 +1,23 @@
-Welcome to Spaces
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="<%= url('stylesheets/style.css') %>" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<form action='/addnewspace' method='get'>
+  <input type='submit' value='Add a new space' />
+</form>
+<% @space.reverse.each do |space| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="card-title"><%= space.name%></h4>
+    <h4 class="card-text"><%= space.description%></h4>
+    <h4 class="card-text"><%= space.price%></h4>
+    <h4 class="card-text"><%= space.id%></h4>
+  </div>
+</div>
+<% end %>
+</body>
+

@@ -41,6 +41,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
+    @space = Space.all
     erb :spaces
   end
   
