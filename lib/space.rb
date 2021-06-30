@@ -10,7 +10,15 @@ class Space
     end
 
     def self.all
+      result = DatabaseConnection.exec("SELECT * FROM spaces;")
+      result.map do |spaces|
+        Space.new(
+        name: spaces['name'],
+        description: spaces['description'],
+        price: spaces['price']
+        )
     end
+  end
 
     def self.create(name:, description:, price:)
       if ENV['ENVIRONMENT'] =='test'
