@@ -37,10 +37,13 @@ GEM
       addressable (~> 2.7)
     method_source (1.0.0)
     mini_mime (1.1.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
     parallel (1.20.1)
@@ -125,6 +128,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
@@ -147,4 +151,5 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
+   2.1.4
    2.2.19

@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-
 gem "rspec"
 gem "capybara"
 gem "sinatra", "~> 2.1"
@@ -10,7 +9,6 @@ gem "sinatra-flash"
 gem "rake", "~> 13.0"
 gem "pg", "~> 1.2"
 gem 'capybara', group: :test
-
 gem 'rspec', group: :test
 gem 'bcrypt'
 
