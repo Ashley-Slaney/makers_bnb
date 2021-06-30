@@ -16,8 +16,14 @@
     <h4 class="card-text"><%= space.description%></h4>
     <h4 class="card-text"><%= space.price%></h4>
     <h4 class="card-text"><%= space.id%></h4>
+    <form action='/spaces' method='post'>
+    <h3>Request a booking! </h3>
+    <textarea name='message' rows='4' cols='50'>Enter message here..</textarea></h3>
+    <h3><input type='submit' value='Submit'></h3>
+    </form>
   </div>
 </div>
 <% end %>
 </body>
+
 
