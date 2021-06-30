@@ -15,9 +15,9 @@ class User
 
   def self.sign_up(name:, email:, password:)
     if ENV['ENVIRONMENT'] =='test'
-      connection = PG.connect(dbname: 'bnb_users_test')      
+      connection = PG.connect(dbname: 'bnb_test')      
     else
-      connection = PG.connect(dbname: 'bnb_users')   
+      connection = PG.connect(dbname: 'bnb')   
     end
 
     password_hash = Password.create(password)
