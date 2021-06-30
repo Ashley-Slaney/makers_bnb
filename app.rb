@@ -1,8 +1,9 @@
 require 'sinatra/base'
-require 'sinatra/flash'
+# require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/space'
+require './database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
   configure :development do
@@ -35,9 +36,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new_space' do
-    sessions[:name] = params[:name]
-    sessions[:description] = params[:description]
-    sessions[:price] = params[:price]
+    Space.create(name: params[:name], description: params[:description], price: params[:price])
+    # sessions[:name] = params[:name]
+    # sessions[:description] = params[:description]
+    # sessions[:price] = params[:price]
     redirect '/spaces'
   end
 

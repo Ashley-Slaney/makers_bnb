@@ -22,7 +22,7 @@ class User
 
     password_hash = Password.create(password)
     
-    p result = connection.exec("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password_hash}') RETURNING id, name, email, password;")
+    result = connection.exec("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password_hash}') RETURNING id, name, email, password;")
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'])
   end
 
