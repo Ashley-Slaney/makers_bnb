@@ -1,8 +1,4 @@
 describe Space do
-  before(:each) do
-    @connection = PG.connect(dbname: 'bnb_users_test')
-    @connection.exec('TRUNCATE TABLE space;')
-  end
 
   it 'adds a space to the database' do
     space = Space.create(name: 'London apartment', description: 'awesome', price: '500')
