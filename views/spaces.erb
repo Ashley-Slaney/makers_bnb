@@ -1,1 +1,7 @@
-Welcome to Spaces
+<form action="/sign_out" method="post">
+  <input type="submit" value="Sign out" />
+</form>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.name %></h1>
+<% end %>

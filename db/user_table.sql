@@ -5,4 +5,4 @@ CREATE TABLE users (
   password VARCHAR(60)
 );
 
-alter table users alter column password varchar(60);
+ALTER TABLE users ALTER COLUMN password TYPE VARCHAR(60);

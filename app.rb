@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require 'sinatra/flash'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/space'
@@ -8,6 +8,7 @@ require './database_connection_setup'
 class MakersBnB < Sinatra::Base 
   configure :development do
     register Sinatra::Reloader
+    register Sinatra::Flash
   end
 
   enable :sessions
@@ -16,19 +17,40 @@ class MakersBnB < Sinatra::Base
     erb(:'index') 
   end 
 
+  post '/sign_out' do
+    session.clear
+    flash[:cullmike] = 'You have signed out.'
+    redirect '/'
+  end
+
  
   post '/sign_up' do
-    # if params[:password_one] != params[:password_two]
-    User.sign_up(name: params[:name], email: params[:email], password: params[:password_one])
-    redirect '/spaces'
-  end 
+    if params[:password_one] != params[:password_two]
+      flash[:notice] = 'Passwords do not match'
+      redirect '/'
+    elsif params[:password_one] == "" || params[:password_two] == ""
+      flash[:notice] = 'Please enter a password'
+      redirect '/'
+    else
+      user = User.sign_up(name: params[:name], email: params[:email], password: params[:password_one])
+      session[:id] = user.id
+      redirect '/spaces'
+    end
+  end
 
   get '/sign_in' do
     erb :'sign_in'
   end
 
   post '/sign_in' do
-    redirect '/spaces'
+    p user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      p session[:id] = user.id
+      redirect('/spaces')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sign_in')
+    end
   end
   
   get '/addnewspace' do
@@ -41,6 +63,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
+    p @user = User.find(id: session[:id])
     erb :spaces
   end
   
