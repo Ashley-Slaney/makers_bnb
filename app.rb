@@ -46,13 +46,6 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/date_range' do
-    p params[:date_range]
-    Space.filter(date_avail: params[:date_avail]) 
-    redirect '/spaces_filtered'
-  end
-
-  get '/spaces_filtered' do
-    p params[:date_range]
     @space = Space.filter(date_avail: params[:date_avail]) 
     erb :spaces_filtered
   end

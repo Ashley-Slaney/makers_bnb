@@ -11,19 +11,6 @@ class Space
       @date_avail = date_avail
     end
 
-    def self.all
-      result = DatabaseConnection.query("SELECT * FROM spaces;")
-      result.map do |spaces|
-        Space.new(
-        id: spaces['id'],  
-        name: spaces['name'],
-        description: spaces['description'],
-        price: spaces['price'],
-        date_avail: spaces['date_avail']
-        )
-    end
-  end
-
     def self.create(name:, description:, price:, date_avail:)
       result = DatabaseConnection.query("INSERT INTO spaces (name, description, price, date_avail) VALUES('#{name}', '#{description}', '#{price}', '#{date_avail}') RETURNING name, description, price, date_avail;")
       Space.new(
@@ -37,7 +24,8 @@ class Space
 
     def self.filter(date_avail:)
       result = DatabaseConnection.query("SELECT * FROM spaces WHERE date_avail = '#{date_avail}';")
-      Space.new(
+      result.map do |spaces|
+        Space.new(
         id: result[0]['id'], 
         name: result[0]['name'], 
         description: result[0]['description'], 
@@ -45,7 +33,19 @@ class Space
         date_avail: result[0]['date_avail']
       )
     end
+  end
+
+    def self.all
+      result = DatabaseConnection.query("SELECT * FROM spaces;")
+      result.map do |spaces|
+        Space.new(
+        id: spaces['id'],  
+        name: spaces['name'],
+        description: spaces['description'],
+        price: spaces['price'],
+        date_avail: spaces['date_avail']
+        )
+    end
+  end
 end
-
-
 

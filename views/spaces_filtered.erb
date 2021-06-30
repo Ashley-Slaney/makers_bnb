@@ -6,10 +6,10 @@
 </head>
 
 <body>
-<form action="/date_range" method='post'>
+<form action='/date_range' method='post'>
   <label>
     Filter dates available:
-    <input type="date" name="date_avail">
+    <input type='date' name='date_avail'>
   </label>
 
   <p><button>Submit</button></p>
@@ -19,7 +19,7 @@
 <form action='/addnewspace' method='get'>
   <input type='submit' value='Add a new space' />
 </form>
-<% @space.reverse.each do |space| %>
+<% @space.each do |space| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h4 class="card-title"><%= space.name%></h4>
