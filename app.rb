@@ -36,7 +36,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new_space' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price])
+    Space.create(name: params[:name], description: params[:description], price: params[:price], date_avail: params[:date_avail])
     redirect '/spaces'
   end
 
@@ -44,7 +44,19 @@ class MakersBnB < Sinatra::Base
     @space = Space.all
     erb :spaces
   end
-  
+
+  post '/date_range' do
+    p params[:date_range]
+    Space.filter(date_avail: params[:date_avail]) 
+    redirect '/spaces_filtered'
+  end
+
+  get '/spaces_filtered' do
+    p params[:date_range]
+    @space = Space.filter(date_avail: params[:date_avail]) 
+    erb :spaces_filtered
+  end
+
   run! if app_file == $0
 
 end
