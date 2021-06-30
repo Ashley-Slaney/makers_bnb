@@ -11,9 +11,10 @@ class Space
     end
 
     def self.all
-      result = DatabaseConnection.query("SELECT * FROM spaces;")
+      result = DatabaseConnection.query("SELECT * FROM space;")
       result.map do |spaces|
         Space.new(
+        id: spaces['id'],  
         name: spaces['name'],
         description: spaces['description'],
         price: spaces['price']

@@ -14,15 +14,8 @@ class User
   end 
 
   def self.sign_up(name:, email:, password:)
-    if ENV['ENVIRONMENT'] =='test'
-      connection = PG.connect(dbname: 'bnb_test')      
-    else
-      connection = PG.connect(dbname: 'bnb')   
-    end
-
     password_hash = Password.create(password)
-    
-    result = connection.exec("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password_hash}') RETURNING id, name, email, password;")
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password_hash}') RETURNING id, name, email, password;")
     User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'], password: result[0]['password'])
   end
 
