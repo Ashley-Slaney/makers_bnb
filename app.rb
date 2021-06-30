@@ -17,7 +17,8 @@ class MakersBnB < Sinatra::Base
 
  
   post '/sign_up' do
-    User.sign_up(name: params[:name], email: params[:email], password: params[:password])
+    # if params[:password_one] != params[:password_two]
+    User.sign_up(name: params[:name], email: params[:email], password: params[:password_one])
     redirect '/spaces'
   end 
 
