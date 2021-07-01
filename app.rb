@@ -63,7 +63,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    @user = User.find(id: session[:id]
+    @user = User.find(id: session[:id])
     @space = Space.all
     @message = session[:message]
     erb :spaces

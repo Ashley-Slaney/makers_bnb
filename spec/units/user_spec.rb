@@ -2,7 +2,7 @@ require 'database_connection'
 
 describe User do
   before(:each) do
-    @connection = PG.connect(dbname: 'bnb_users_test')
+    @connection = PG.connect(dbname: 'bnb_test')
     @connection.exec('TRUNCATE TABLE users;')
   end
 

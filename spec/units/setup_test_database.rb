@@ -5,4 +5,6 @@ def setup_test_database
   connection = PG.connect(dbname: 'bnb_test')
   # Clear the user_test tables
   connection.exec("TRUNCATE spaces, users;")
+  #connection.exec("TRUNCATE users;")
+
 end

@@ -22,9 +22,9 @@ class User
   def self.find(id:)
   return nil unless id
     if ENV['ENVIRONMENT'] =='test'
-      connection = PG.connect(dbname: 'bnb_users_test')      
+      connection = PG.connect(dbname: 'bnb_test')      
     else
-      connection = PG.connect(dbname: 'bnb_users')   
+      connection = PG.connect(dbname: 'bnb')   
     end
     result = connection.query("SELECT * FROM users WHERE id = '#{id}';")
     User.new(
@@ -37,9 +37,9 @@ class User
 
   def self.authenticate(email:, password:)
     if ENV['ENVIRONMENT'] =='test'
-      connection = PG.connect(dbname: 'bnb_users_test')      
+      connection = PG.connect(dbname: 'bnb_test')      
     else
-      connection = PG.connect(dbname: 'bnb_users')   
+      connection = PG.connect(dbname: 'bnb')   
     end
     result = connection.query("SELECT * FROM users WHERE email = '#{email}'")
     return unless result.any?
