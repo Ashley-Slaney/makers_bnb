@@ -25,9 +25,10 @@
     <h4 class="card-text"><%= space.id%></h4>
     <form action='/spaces' method='post'>
     <h3>Request a booking! </h3>
-    <textarea name='message' rows='4' cols='50'>Enter message here..</textarea></h3>
-    <h3><input type='submit' value='Submit'></h3>
+    <h3><textarea name='message' rows='4' cols='50'></textarea></h3>
+    <h3><input type="submit" value="Request booking" /></h3>
     </form>
+    <h5><%= @message %> </h5>
   </div>
 </div>
 <% end %>
