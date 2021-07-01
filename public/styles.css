@@ -1,0 +1,86 @@
+.card {
+  border: 1px solid #000000;
+  border-style: groove;
+  background-color: #426B69;
+  float: 33%;
+  }
+
+  textarea {
+    resize: none;
+    width: 90%;
+  }
+  
+
+ html { box-sizing: border-box; }
+
+ 
+ 
+ span {
+   color: #74c3e2;
+   text-align: right;
+   
+ }
+ 
+ .signout, .signin, .signup {
+   position: relative;
+   margin-left: 96%; 
+   color: white;   
+   font-size: 24px;
+   font-weight:700;
+ }
+ 
+ .ul {
+   text-align: right;
+ }
+ 
+ body {
+   margin: 0 auto;
+   min-width: 600px;
+   max-width: 100%;
+   color: #000000; 
+   font-family: 'Roboto', sans-serif;
+ }
+ 
+ h1, h2, h3, h4, h5, h6, p {
+   color: #000000;
+   margin-bottom: 0.5rem;
+ }
+
+ h1 {
+   text-align: center;
+ }
+ 
+ .heading {
+   position: absolute;
+   text-align: center;
+   margin-left: 45%;
+   font-size: 60px;
+   font-family: 'Roboto', sans-serif;
+ }
+ 
+ .sign_up {
+  width: 500px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -200px;
+  margin-left: -250px;
+  border-style: groove;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  background-color: #426B69;
+  line-height: 50px;
+}
+
+.sign_in {
+  position:absolute;
+  top:0;
+  right:0;
+  position: absolute;
+  color: rgb(0, 0, 0);   
+  font-size: 26px;
+  font-weight:700;
+}
+ 

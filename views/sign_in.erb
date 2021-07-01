@@ -1,3 +1,5 @@
+
+
 This is the login page
 
 <form action='/sign_in' method='post'>
@@ -5,6 +7,7 @@ This is the login page
   <h3>Enter your password - <input type='password' name='password'></h3>
   <h3><input type='submit' value='Submit'></h3>
 </form>
+ <h3 style="color: red;"> <%= flash[:notice] %> </h3>
 
-<h3 style="color: red;"> <%= flash[:notice] %> </h3>
+
 

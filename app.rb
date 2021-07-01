@@ -13,17 +13,14 @@ class MakersBnB < Sinatra::Base
 
   enable :sessions
 
+  # Index page 
+
   get '/' do
     erb(:'index') 
   end 
 
-  post '/sign_out' do
-    session.clear
-    flash[:cullmike] = 'You have signed out.'
-    redirect '/'
-  end
+  # User sign up and sign-in
 
- 
   post '/sign_up' do
     if params[:password_one] != params[:password_two]
       flash[:notice] = 'Passwords do not match'
@@ -41,6 +38,13 @@ class MakersBnB < Sinatra::Base
   get '/sign_in' do
     erb :'sign_in'
   end
+  
+   post '/sign_out' do
+    session.clear
+    flash[:cullmike] = 'You have signed out.'
+    redirect '/'
+  end
+ 
 
   post '/sign_in' do
     user = User.authenticate(email: params[:email], password: params[:password])
@@ -52,13 +56,20 @@ class MakersBnB < Sinatra::Base
       redirect('/sign_in')
     end
   end
+
+  # Spaces default view, add new space and filter spaces
+
+  post '/date_range' do
+    @space = Space.filter(date_avail: params[:date_avail]) 
+    erb :spaces_filtered
+  end
   
   get '/addnewspace' do
     erb :new_space
   end
 
-  post '/new_space' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price])
+  post '/addnewspace' do
+    Space.create(name: params[:name], description: params[:description], price: params[:price], date_avail: params[:date_avail])
     redirect '/spaces'
   end
 
