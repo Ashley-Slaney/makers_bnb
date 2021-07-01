@@ -1,7 +1,36 @@
-<form action="/sign_out" method="post">
-  <input type="submit" value="Sign out" />
-</form>
 
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="<%= url('stylesheets/style.css') %>" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <form action="/sign_out" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
+<form action='/addnewspace' method='get'>
+  <input type='submit' value='Add a new space' />
+</form>
+<% @space.reverse.each do |space| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="card-title"><%= space.name%></h4>
+    <h4 class="card-text"><%= space.description%></h4>
+    <h4 class="card-text"><%= space.price%></h4>
+    <h4 class="card-text"><%= space.id%></h4>
+    <form action='/spaces' method='post'>
+    <h3>Request a booking! </h3>
+    <textarea name='message' rows='4' cols='50'>Enter message here..</textarea></h3>
+    <h3><input type='submit' value='Submit'></h3>
+    </form>
+  </div>
+</div>
+<% end %>
+</body>
+
+

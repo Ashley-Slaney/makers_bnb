@@ -43,9 +43,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/sign_in' do
-    p user = User.authenticate(email: params[:email], password: params[:password])
+    user = User.authenticate(email: params[:email], password: params[:password])
     if user
-      p session[:id] = user.id
+      session[:id] = user.id
       redirect('/spaces')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -63,7 +63,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    p @user = User.find(id: session[:id])
+    @user = User.find(id: session[:id]
+    @space = Space.all
     erb :spaces
   end
   
