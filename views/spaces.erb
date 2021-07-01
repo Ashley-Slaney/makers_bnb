@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="<%= url('stylesheets/style.css') %>" type="text/css"/>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<form action="/date_range" method='post'>
-  <label>
-    Filter dates available:
-    <input type="date" name="date_avail">
-  </label>
+<h1>MakersBnB</h1>
 
-  <p><button>Submit</button></p>
+<form action="/date_range" method='post'>
+    Filter dates available:
+  <input type="date" name="date_avail">
+  <p><button>Filter</button></p>
 </form>
 
 
@@ -21,8 +20,8 @@
   <input type='submit' value='Add a new space' />
 </form>
 <% @space.reverse.each do |space| %>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+<div class="card" style="width: 18rem;" id="container">
+  <div class="row">
     <h4 class="card-title"><%= space.name%></h4>
     <h4 class="card-text"><%= space.description%></h4>
     <h4 class="card-text"><%= space.price%></h4>
