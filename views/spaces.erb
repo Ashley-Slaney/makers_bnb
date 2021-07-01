@@ -25,6 +25,10 @@
     <input type="submit" value="Sign out" />
   </form>
 
+  <form action="/user_spaces" method="post">
+    <input type="submit" value="View your spaces" />
+  </form>
+
 
 <form action='/addnewspace' method='get'>
   <input type='submit' value='Add a new space' />
@@ -43,9 +47,21 @@
     <h3><input type="submit" value="Request booking" /></h3>
     </form>
     <h5><%= @message %> </h5>
+
+   <!-- <form action='/' method='post'>
+    <input type='submit' value='accept!' />
+    <input type='submit' value='reject!' />
+    </form>
+    <h3 style="color: green;"> <%= flash[:accept] %> </h3>
+    <h3 style="color: red;"> <%= flash[:reject] %> </h3> -->
+
+    
+
   </div>
+
 </div>
 <% end %>
+
 </body>
 
 

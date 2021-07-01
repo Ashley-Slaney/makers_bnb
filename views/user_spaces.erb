@@ -1,0 +1,19 @@
+<h1> YOUR SPACE </h1>
+
+<% @user_spaces.each do |space| %>
+<br>
+<%= space['name']%>
+<br>
+<%= space['description']%>
+<br>
+<%= space['price']%>
+<br>
+<%= space['date_avail']%>
+<br>
+
+<% end %>
+
+<!-- 1. View only your spaces 
+2. View requests on your spaces 
+3. Accept for reject requests -->
+
