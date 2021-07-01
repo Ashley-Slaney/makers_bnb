@@ -42,8 +42,16 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces' do
     @space = Space.all
+    @message = session[:message]
     erb :spaces
   end
+  
+
+  post '/spaces' do
+    session[:message] = params[:message]
+    redirect '/spaces'
+  end
+  
   
   run! if app_file == $0
 
