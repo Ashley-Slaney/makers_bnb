@@ -6,28 +6,27 @@
 </head>
 
 <body>
-<h1>Welcome, to MakersBnB</h1>
+<h1>Welcome, to MakersBnB<br>___________</h1>
 
-<div class="sign_in">
+
+<div class="log_in">
 <form action="/sign_in" method="get">
 Already a member?  <input type="submit" value="Sign-in">
 </form>
 </div>
 
-<div class="sign_up">
+<h3 style="color: red;"> <%= flash[:notice] %> </h3>
+<h3 style="color: red;"> <%= flash[:cullmike] %> </h3>
 
+<div class="sign_up">
 <h2>Sign up below:</h2>
+<p>Enter your details</p>
 <form action="/sign_up" method="post">
   <input type="name" name="name" placeholder="Name">
-  <input type="email" name="email" placeholder="Email">
-  <input type="password" name="password_one" placeholder="Password">
-  <input type="password" name ="password_two" placeholder="Confirm Password">
-  <input type="submit" value="Sign-up">
+  <br><input type="email" name="email" placeholder="Email">
+  <br><input type="password" name="password_one" placeholder="Password">
+  <br><input type="password" name ="password_two" placeholder="Confirm Password">
+  <br><input type="submit" value="Sign-up">
 </form>
 </div>
-  
-<h3 style="color: red;"> <%= flash[:notice] %> </h3>
-<h3 style="color: blue;"> <%= flash[:cullmike] %> </h3>
 </body>
-
-

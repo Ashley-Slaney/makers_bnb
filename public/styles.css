@@ -1,8 +1,26 @@
+body {
+  background-size: cover;
+  /* color: rgb(0, 0, 0); */
+  margin: 0px;
+  background-color: #fff;
+  color: #6f6d6d;
+  /* font-family: 'Lato', 'Arial', sans-serif; */
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height:100%;
+  background:linear-gradient(0deg, rgba(37, 30, 136, 0.3), rgba(37, 30, 136, 0.3)), url(https://lh3.googleusercontent.com/7eDxa0H11YWK7WTqgQpVNiml0Bx-0n4Dma55m3_FwRaOSrtB8WZD9ZZ9PcfcCI-4d9WTeGZ7LEAW6f9SLOjlRS-m=s1600);
+  background-size:cover;
+}
+
+
 .card {
+  text-align: center;
+  position: relative;
   border: 1px solid #000000;
   border-style: groove;
   background-color: #426B69;
-  float: 33%;
   }
 
   textarea {
@@ -21,12 +39,13 @@
    
  }
  
- .signout, .signin, .signup {
-   position: relative;
-   margin-left: 96%; 
+ .log_in {
    color: white;   
-   font-size: 24px;
-   font-weight:700;
+   font-size: 22px;
+   position:absolute;
+   top:0;
+   right:0;
+   font-weight: 600;
  }
  
  .ul {
@@ -42,12 +61,17 @@
  }
  
  h1, h2, h3, h4, h5, h6, p {
-   color: #000000;
+   color: #ffffff;
    margin-bottom: 0.5rem;
  }
 
  h1 {
    text-align: center;
+ }
+
+ h3 {
+  text-align: center;
+  font-size: 20px;
  }
  
  .heading {
@@ -58,7 +82,7 @@
    font-family: 'Roboto', sans-serif;
  }
  
- .sign_up {
+ .sign_up, .sign_in, .addspace {
   width: 500px;
   height: 400px;
   top: 50%;
@@ -70,17 +94,33 @@
   text-align: center;
   border-radius: 25px;
   border: 2px solid #000000;
-  background-color: #426B69;
+  background-color: #0816429a;
   line-height: 50px;
 }
 
-.sign_in {
+.spaceadded {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  position: relative;
+  width: 75%;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  background-color: #0816429a;
+  border-style: groove;
+}
+
+.log_off {
+  color: white;   
+  font-size: 22px;
   position:absolute;
   top:0;
   right:0;
-  position: absolute;
-  color: rgb(0, 0, 0);   
-  font-size: 26px;
-  font-weight:700;
+  font-weight: 600;
 }
- 
+
+
+
+
+
