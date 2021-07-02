@@ -1,7 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<h1><h1>Add Space<br>___________</h1>
+
+<div class="addspace">
+<h3>Enter the details below:
 <form action="/addnewspace" method="post">
   <input type="text" name="name" placeholder=“Name”>
-  <input type="text" name="description" placeholder="Description">
-  <input type="text" name="price" placeholder=“Price”>
-  <input type="date" name="date_avail">
+  <br><input type="text" name="description" placeholder="Description">
+  <br><input type="text" name="price" placeholder=“Price”>
+  <br><input type="date" name="date_avail">
   <h3><input type="submit" value="Submit"></h3>
 </form>
+</div>
+
+</body>

@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="<%= url('stylesheets/style.css') %>" type="text/css"/>
+  <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
 <form action='/date_range' method='post'>
-  <label>
+
+
+<h1>MakersBnB<br>___________</h1>
+   <% if @user %>
+  <h3>Welcome, <%= @user.name %></h3>
+<% end %>
+<br>
+<h3>
+<form action="/date_range" method='post'>
+<label>
     Filter dates available:
     <input id="date_avail" type='date' name='date_avail'>
   </label>
-  <p><button>Filter</button></p>
+<p><button>Filter</button>
 </form>
+
+</h3>
+</h3>
+<h3>OR</h3>
+<h3>
 
 
 <form action='/addnewspace' method='get'>
   <input type='submit' value='Add a new space' />
 </form>
-<% @space.each do |space| %>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h4 class="card-title"><%= space.name%></h4>
-    <h4 class="card-text"><%= space.description%></h4>
-    <h4 class="card-text"><%= space.price%></h4>
-    <h4 class="card-text"><%= space.id%></h4>
-    <h4 class="card-text"><%= space.date_avail%></h4>
+<% @space.reverse.each do |space| %>
+<p></p>
+<div class="spaceadded">
+    <h3>Name - <%= space.name%></h3>
+    <h3>Description - <%= space.description%></h3>
+    <h3>Price - <%= space.price%></h3>
+    <h3>ID - <%= space.id%></h3>
+    <h3>Date Availability - <%= space.date_avail%></h3>
     <form action='/spaces' method='post'>
     <h3>Request a booking! </h3>
-    <textarea name='message' rows='4' cols='50'>Enter message here..</textarea></h3>
-    <h3><input type='submit' value='Submit'></h3>
+    <h3><textarea name='message' rows='4' cols='50'>Enter your request details</textarea></h3>
+    <h3><input type="submit" value="Request booking" /></h3>
     </form>
-  </div>
+    <h3><%= @message %> </h3>
 </div>
 <% end %>
 </body>

@@ -65,6 +65,7 @@ class MakersBnB < Sinatra::Base
 
   post '/date_range' do
     @space = Space.filter(date_avail: params[:date_avail]) 
+    @user = User.find(id: session[:id])
     erb :spaces_filtered
   end
   

@@ -5,25 +5,32 @@
   <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 
-<h1>MakersBnB</h1>
+<h1>MakersBnB<br>___________</h1>
   
   <% if @user %>
-  <h1>Welcome, <%= @user.name %></h1>
+  <h3>Welcome, <%= @user.name %></h3>
 <% end %>
 
-<form action="/date_range" method='post'>
-    Filter dates available:
-  <input type="date" name="date_avail">
-  <p><button>Filter</button></p>
-</form>
-
+<div class="log_off">
   <form action="/sign_out" method="post">
     <input type="submit" value="Sign out" />
   </form>
+  </div>
+  <br>
+<h3>
+<form action="/date_range" method='post'>
+<label>
+    Filter dates available:
+    <input id="date_avail" type='date' name='date_avail'>
+  </label>
+<p><button>Filter</button>
+</form>
+</h3>
+<h3>OR</h3>
+<h3>
 
   <form action="/user_spaces" method="post">
     <input type="submit" value="View your spaces" />
@@ -33,34 +40,27 @@
 <form action='/addnewspace' method='get'>
   <input type='submit' value='Add a new space' />
 </form>
+</h3>
 <% @space.reverse.each do |space| %>
-<div class="card" style="width: 18rem;" id="container">
-  <div class="row">
-    <h4 class="card-title"><%= space.name%></h4>
-    <h4 class="card-text"><%= space.description%></h4>
-    <h4 class="card-text"><%= space.price%></h4>
-    <h4 class="card-text"><%= space.id%></h4>
-    <h4 class="card-text"><%= space.date_avail%></h4>
+<p></p>
+<div class="spaceadded">
+    <h3>Name - <%= space.name%></h3>
+    <h3>Description - <%= space.description%></h3>
+    <h3>Price - <%= space.price%></h3>
+    <h3>ID - <%= space.id%></h3>
+    <h3>Date Availability - <%= space.date_avail%></h3>
     <form action='/spaces' method='post'>
     <h3>Request a booking! </h3>
     <h3><textarea name='message' rows='4' cols='50'>Enter your request details</textarea></h3>
     <h3><input type="submit" value="Request booking" /></h3>
     </form>
-    <h5><%= @message %> </h5>
-
+    <h3><%= @message %> </h3>
     <input type='submit' value='accept!' />
     <input type='submit' value='reject!' />
-
-    <!--<h3 style="color: green;"> <%= flash[:accept] %> </h3>
-    <h3 style="color: red;"> <%= flash[:reject] %> </h3> -->
-
-    
-
   </div>
 
 </div>
 <% end %>
 
 </body>
-
 
