@@ -108,11 +108,6 @@ class MakersBnB < Sinatra::Base
     erb :user_spaces
   end
 
-  post '/back' do
-    redirect '/spaces'
-  end
-  
-  
   run! if app_file == $0
 
 end
