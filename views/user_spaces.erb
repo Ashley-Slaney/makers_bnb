@@ -6,24 +6,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-<h1> YOUR SPACE </h1>
-
+<h1> YOUR SPACE <br>___________</h1>
 <h3><% @user_spaces.each do |space| %></h3>
-<br>
-<h3>Name: <%= space['name']%></h3>
-<br>
-<h3>Description: <%= space['description']%></h3>
-<br>
-<h3>Price: <%= space['price']%></h3>
-<br>
-<h3>Dates: <%= space['date_avail']%></h3>
-<br>
+  <div class="your_space">
+    <h3>Name: <%= space['name']%></h3>
+    <h3>Description: <%= space['description']%></h3>
+    <h3>Price: <%= space['price']%></h3>
+    <h3>Dates: <%= space['date_avail']%></h3>
 
- <h3><input type='submit' value='accept!' /></h3>
- <h3><input type='submit' value='reject!' /></h3> 
+    <h3><input type='submit' value='accept!' /></h3>
+    <h3><input type='submit' value='reject!' /></h3> 
 
+  </div>
 <% end %>
-
 <!-- 1. View only your spaces 
 2. View requests on your spaces 
 3. Accept for reject requests -->
