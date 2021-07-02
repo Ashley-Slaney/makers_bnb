@@ -82,8 +82,6 @@ class MakersBnB < Sinatra::Base
   
 
   get '/spaces' do
-    #Space.list_spaces_by_email(host_email: "john@gmail.com")
-    #@email_space.host_email
     @user = User.find(id: session[:id])
     @space = Space.all
     @message = session[:message]
@@ -101,18 +99,15 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user_spaces' do 
-    
     redirect '/user_spaces'
   end
 
   get '/user_spaces' do 
-     
-     @user = User.find(id: session[:id])
-     @user_spaces = Space.list_spaces_by_email(host_email: @user.email)
-     erb :user_spaces
+    @user = User.find(id: session[:id])
+    @user_spaces = Space.list_spaces_by_email(host_email: @user.email)
+    erb :user_spaces
   end
-  
-  
+
   run! if app_file == $0
 
 end

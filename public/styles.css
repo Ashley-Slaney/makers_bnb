@@ -82,9 +82,9 @@ body {
    font-family: 'Roboto', sans-serif;
  }
  
- .sign_up, .sign_in, .addspace {
+ .sign_up, .sign_in, .addspace, .your_space {
   width: 500px;
-  height: 400px;
+  /* height: 400px; */
   top: 50%;
   left: 50%;
   position: absolute;
