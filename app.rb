@@ -47,9 +47,13 @@ class MakersBnB < Sinatra::Base
  
 
   post '/sign_in' do
+    #
+    #session[:email] = params[:email]
+    #
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:id] = user.id
+      session[:password] = user.password
       redirect('/spaces')
     else
       flash[:notice] = 'Please check your email or password.'
@@ -70,21 +74,42 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/addnewspace' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price], date_avail: params[:date_avail])
+    @user = User.find(id: session[:id])
+    Space.create(name: params[:name], description: params[:description], price: params[:price], date_avail: params[:date_avail], host_email: @user.email)
     redirect '/spaces'
   end
+  
+  
 
   get '/spaces' do
+    #Space.list_spaces_by_email(host_email: "john@gmail.com")
+    #@email_space.host_email
     @user = User.find(id: session[:id])
     @space = Space.all
     @message = session[:message]
+
+    flash[:accepted!] = 'Request accepted!'
     erb :spaces
   end
   
 
   post '/spaces' do
     session[:message] = params[:message]
+    @user = User.find(id: session[:id])
+    @user.email
     redirect '/spaces'
+  end
+
+  post '/user_spaces' do 
+    
+    redirect '/user_spaces'
+  end
+
+  get '/user_spaces' do 
+     
+     @user = User.find(id: session[:id])
+     @user_spaces = Space.list_spaces_by_email(host_email: @user.email)
+     erb :user_spaces
   end
   
   

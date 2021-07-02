@@ -32,6 +32,10 @@
 <h3>OR</h3>
 <h3>
 
+  <form action="/user_spaces" method="post">
+    <input type="submit" value="View your spaces" />
+  </form>
+
 
 <form action='/addnewspace' method='get'>
   <input type='submit' value='Add a new space' />
@@ -51,7 +55,12 @@
     <h3><input type="submit" value="Request booking" /></h3>
     </form>
     <h3><%= @message %> </h3>
+    <input type='submit' value='accept!' />
+    <input type='submit' value='reject!' />
+  </div>
+
 </div>
 <% end %>
+
 </body>
 
