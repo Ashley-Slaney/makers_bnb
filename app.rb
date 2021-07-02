@@ -86,7 +86,7 @@ class MakersBnB < Sinatra::Base
     @user = User.find(id: session[:id])
     @space = Space.all
     @message = session[:message]
-    
+
     flash[:accepted!] = 'Request accepted!'
     erb :spaces
   end
@@ -105,6 +105,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/user_spaces' do 
+     
      @user = User.find(id: session[:id])
      @user_spaces = Space.list_spaces_by_email(host_email: @user.email)
      erb :user_spaces
